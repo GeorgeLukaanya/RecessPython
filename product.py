@@ -13,8 +13,13 @@
 # print(f"Difference: {subtract_value}")
 
 #Exercise 2
-#Division
+#Division, assuming second parameter cannot be zero
 def division(a, b):
-    return a/b
+    if b == 0:
+        return "Cannot divide by zero(0)"
+    else:
+        return a/b
 
-print(division(4, 2))
+a = int(input("Enter the first value: "))
+b = int(input("Enter the second value: "))
+print(division(a, b))
