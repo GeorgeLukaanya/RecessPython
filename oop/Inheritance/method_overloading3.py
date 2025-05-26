@@ -24,5 +24,5 @@ calc = Calculator()
 
 # Test overloaded calculate method
 print(calc.calculate(3, 5))              # Two integers
-print(calc.calculate(2.5, 4))           # Float and integer
+print(calc.calculate(2.5, 4))           # Float and integerl
 print(calc.calculate([1, 2, 3, 4, 5]))  # List of numbers
