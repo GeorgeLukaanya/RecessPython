@@ -1,1 +1,4 @@
-Working with text files
+Hello, I am George!
+I love Data Engineering!
+I am learning Python!
+I am excited to learn more!
