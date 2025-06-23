@@ -17,7 +17,7 @@ ANIMAL_CLASSES = 3  # Dog, Cat, Human (for filtering)
 
 # Paths
 # Should contain subfolders: crops/healthy, crops/diseased, animals/dog, animals/cat, animals/human
-DATASET_DIR = "dataset"
+DATASET_DIR = "datasets"
 MODEL_PATH = "agricure_model.h5"
 
 
@@ -187,26 +187,4 @@ def predict_image(model, animal_model, image_path):
     }
 
 
-if __name__ == "__main__":
-    # Train or load models
-    if not os.path.exists(MODEL_PATH):
-        print("Training crop disease model...")
-        crop_model = train_crop_model()
-        print("Training animal filter model...")
-        animal_model = train_animal_filter()
-    else:
-        print("Loading existing models...")
-        crop_model = tf.keras.models.load_model(MODEL_PATH)
-        animal_model = create_model(IMAGE_SIZE + (3,), ANIMAL_CLASSES)
-        # Note: In production, you should save/load the animal model too
 
-    # Test prediction
-    test_image = "test_image.jpg"  # Replace with your test image
-    if os.path.exists(test_image):
-        prediction = predict_image(crop_model, animal_model, test_image)
-        print("\nPrediction Results:")
-        print(f"Type: {prediction['type']}")
-        print(f"Class: {prediction['class']}")
-        print(f"Confidence: {prediction['confidence']:.2%}")
-    else:
-        print(f"Test image {test_image} not found")
